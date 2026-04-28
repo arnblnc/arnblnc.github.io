@@ -16,7 +16,7 @@
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+        /* Miami Heat Authentic Gradient: Cardinal Red to Gold */
         .gradient-text {
             background: linear-gradient(90deg, #E03A3E, #F9A01B); 
             -webkit-background-clip: text;
@@ -32,24 +32,6 @@
         .social-icon-btn:hover {
             transform: translateY(-2px);
             color: #ef4444; /* Red-500 */
-        }
-        
-        /* AI Chat Styles */
-        .typing-indicator span {
-            animation: blink 1.4s infinite both;
-            height: 6px;
-            width: 6px;
-            background-color: #737373;
-            border-radius: 50%;
-            display: inline-block;
-            margin: 0 1px;
-        }
-        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes blink {
-            0% { opacity: 0.2; }
-            20% { opacity: 1; }
-            100% { opacity: 0.2; }
         }
     </style>
 </head>
@@ -136,7 +118,7 @@
 
             <!-- Profile Image -->
             <div class="flex-1 relative w-full max-w-sm lg:max-w-md mx-auto z-10">
-                
+                <!-- Heat Gradient Aura -->
                 <div class="absolute inset-0 bg-gradient-to-tr from-red-600 via-red-500 to-amber-500 rounded-full blur-3xl opacity-30 transform translate-x-4 translate-y-4"></div>
                 <div class="relative aspect-square rounded-full border-8 border-neutral-900 shadow-2xl overflow-hidden bg-neutral-800 flex items-center justify-center">
                     <img src="pfp-ab.jpeg" alt="Aaron Blanco" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Aaron+Blanco&background=171717&color=ef4444&size=512';">
@@ -440,42 +422,6 @@
         </div>
     </footer>
 
-    <!-- AI Assistant Chat Widget -->
-    <div id="ai-chat-panel" class="fixed bottom-24 right-6 w-80 sm:w-96 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden hidden transform transition-all duration-300 translate-y-4 opacity-0 h-[400px]">
-        <div class="bg-black p-4 text-white flex justify-between items-center border-b-2 border-red-600">
-            <div class="flex items-center gap-3">
-                <span class="text-2xl text-amber-500">🔥</span>
-                <div>
-                    <h3 class="font-black text-sm uppercase tracking-tight">Aaron's AI Assistant</h3>
-                    <p class="text-xs text-neutral-400 font-medium">Ask about my experience</p>
-                </div>
-            </div>
-            <button id="close-chat" class="text-neutral-400 hover:text-red-500 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-            </button>
-        </div>
-        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-neutral-950 space-y-4 text-sm font-medium">
-            <div class="flex gap-2">
-                <div class="bg-neutral-800 border border-neutral-700 p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-neutral-200">
-                    Hi there! I'm an AI assistant trained on Aaron's portfolio. Want to know more about his ROS2 projects, mechanical engineering background, or specific skills?
-                </div>
-            </div>
-        </div>
-        <div class="p-3 border-t border-neutral-800 bg-neutral-900">
-            <form id="chat-form" class="flex gap-2">
-                <input type="text" id="chat-input" placeholder="Ask a question..." autocomplete="off" class="flex-1 px-3 py-2 bg-neutral-950 border border-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent text-sm font-medium text-white placeholder-neutral-500">
-                <button type="submit" class="bg-red-600 text-white p-2 rounded-lg hover:bg-red-700 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <button id="ai-chat-btn" class="fixed bottom-6 right-6 bg-black text-white border-2 border-red-600 p-4 rounded-full shadow-lg shadow-red-600/30 hover:bg-neutral-900 hover:scale-105 transition-all z-50 flex items-center justify-center group">
-        <span class="text-xl group-hover:hidden">🔥</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden group-hover:block text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
-    </button>
-
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -516,135 +462,6 @@
                     link.classList.remove('text-red-500');
                 }
             });
-        });
-
-        // --- Gemini AI Assistant Logic ---
-        const apiKey = "AIzaSyD-3Z0H5Xf13z-Ha4xLgyZnTEP8c_Rl9yo"; 
-        const chatBtn = document.getElementById('ai-chat-btn');
-        const chatPanel = document.getElementById('ai-chat-panel');
-        const closeChatBtn = document.getElementById('close-chat');
-        const chatForm = document.getElementById('chat-form');
-        const chatInput = document.getElementById('chat-input');
-        const chatMessages = document.getElementById('chat-messages');
-
-        const systemPrompt = `You are a polite, helpful AI assistant built directly into Aaron Blanco's portfolio website. You are speaking to recruiters, hiring managers, and visitors.
-        Aaron's Profile: Robotics & Mechanical Engineer, MIET.
-        Education: MSc in Robotics (King's College London), BEng in Mechanical Engineering (Brunel University).
-        Professional Memberships: MIET (Member of the Institution of Engineering and Technology).
-        Key Skills: ROS2 (rclpy/rclcpp), Python, C++, MATLAB, Fusion 360, Machine Learning, Computer Vision, Arduino, Git, Linux.
-        Interests & Continuous Learning: Currently learning Practical C++ via Udemy, participated in KCL Robotics Society workshops.
-        Projects: 
-        1. ROS2 Autonomous Target Tracking (Multi-node OOP Python architecture using Turtlesim).
-        2. EMG signal processing for online training (MATLAB, SVM/LDA classifiers).
-        3. AI fabric fault detection (YOLOv4, Resnet50, 88.2% accuracy).
-        4. Robotics motion planning (Implemented A*, RRT, PRM in Python).
-        Experience: 
-        1. Part-time Restaurant Server at Bali Bali (Sep 2022 - Present) - Managed this alongside MSc degree.
-        2. Secretary of the ABACUS society (2020-2022).
-        3. Model & Actor for major brands (2013-Present).
-        Instructions: Keep answers concise (1-3 short paragraphs max). Do not invent information. Answer as a third-party assistant (e.g., "Aaron has experience in..."). End relevant conversations by encouraging the visitor to email him directly at aaronnblanco@gmail.com for more details.`;
-
-        let isChatOpen = false;
-
-        chatBtn.addEventListener('click', () => {
-            isChatOpen = !isChatOpen;
-            if (isChatOpen) {
-                chatPanel.classList.remove('hidden');
-                setTimeout(() => {
-                    chatPanel.classList.remove('translate-y-4', 'opacity-0');
-                }, 10);
-                chatInput.focus();
-            } else {
-                closeChat();
-            }
-        });
-
-        closeChatBtn.addEventListener('click', closeChat);
-
-        function closeChat() {
-            isChatOpen = false;
-            chatPanel.classList.add('translate-y-4', 'opacity-0');
-            setTimeout(() => {
-                chatPanel.classList.add('hidden');
-            }, 300);
-        }
-
-        function addMessage(text, isUser = false) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `flex gap-2 ${isUser ? 'justify-end' : ''}`;
-            
-            const bubble = document.createElement('div');
-            bubble.className = `p-3 rounded-2xl shadow-sm max-w-[85%] text-sm font-medium ${
-                isUser 
-                ? 'bg-red-600 text-white rounded-tr-none' 
-                : 'bg-neutral-800 border border-neutral-700 text-neutral-200 rounded-tl-none'
-            }`;
-            
-            let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            formattedText = formattedText.replace(/\n/g, '<br>');
-            bubble.innerHTML = formattedText;
-            
-            msgDiv.appendChild(bubble);
-            chatMessages.appendChild(msgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function addTypingIndicator() {
-            const msgDiv = document.createElement('div');
-            msgDiv.id = 'typing-indicator';
-            msgDiv.className = 'flex gap-2';
-            msgDiv.innerHTML = `
-                <div class="bg-neutral-800 border border-neutral-700 p-3 rounded-2xl rounded-tl-none shadow-sm flex items-center typing-indicator">
-                    <span></span><span></span><span></span>
-                </div>
-            `;
-            chatMessages.appendChild(msgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function removeTypingIndicator() {
-            const indicator = document.getElementById('typing-indicator');
-            if (indicator) indicator.remove();
-        }
-
-        async function callGemini(prompt) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-            const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] }
-            };
-
-            const delays = [1000, 2000, 4000, 8000, 16000];
-            for (let i = 0; i < 5; i++) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    if (!response.ok) throw new Error('API Error');
-                    const data = await response.json();
-                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't generate a response.";
-                } catch (err) {
-                    if (i === 4) return "Sorry, I'm having trouble connecting to the AI right now. Please reach out to Aaron directly via email at aaronnblanco@gmail.com!";
-                    await new Promise(r => setTimeout(r, delays[i]));
-                }
-            }
-        }
-
-        chatForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const text = chatInput.value.trim();
-            if (!text) return;
-
-            addMessage(text, true);
-            chatInput.value = '';
-            
-            addTypingIndicator();
-            const responseText = await callGemini(text);
-            removeTypingIndicator();
-            
-            addMessage(responseText);
         });
     </script>
 </body>
