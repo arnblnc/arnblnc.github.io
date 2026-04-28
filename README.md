@@ -18,7 +18,7 @@ This is a lightweight, static, single-page application built for maximum perform
 ## 📂 Repository Structure
 * `index.html`: The core website source code and UI logic.
 * `AaronBlanco-CV.pdf`: The downloadable professional CV linked directly to the site's hero and experience sections.
-* `64982807-6DD3-4A2E-A649-7B15B7EB688C_1_105_c.jpeg`: Compressed profile asset.
+* `pfp-ab.jpeg`: Compressed profile asset.
 
 ## 🚀 Local Development
 Because this site operates without a backend or build step, testing it locally is extremely straightforward:
