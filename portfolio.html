@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaron Blanco, MIET | Robotics & Mechanical Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.90);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        /* Miami Heat Authentic Gradient: Cardinal Red to Gold */
+        .gradient-text {
+            background: linear-gradient(90deg, #E03A3E, #F9A01B); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .skill-tag {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+        }
+        .social-icon-btn {
+            transition: all 0.2s ease;
+        }
+        .social-icon-btn:hover {
+            transform: translateY(-2px);
+            color: #ef4444; /* Red-500 */
+        }
+        
+        /* AI Chat Styles */
+        .typing-indicator span {
+            animation: blink 1.4s infinite both;
+            height: 6px;
+            width: 6px;
+            background-color: #737373;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 1px;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes blink {
+            0% { opacity: 0.2; }
+            20% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+    </style>
+</head>
+<body class="bg-neutral-950 text-neutral-100">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tight uppercase text-white">Aaron Blanco<span class="text-red-600">.</span></a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-neutral-400">
+                <a href="#about" class="hover:text-red-500 transition-colors">About Me</a>
+                <a href="#projects" class="hover:text-red-500 transition-colors">Projects</a>
+                <a href="#skills" class="hover:text-red-500 transition-colors">Skills</a>
+                <a href="#timeline" class="hover:text-red-500 transition-colors">Experience</a>
+                <a href="#contact" class="hover:text-red-500 transition-colors">Contact</a>
+                <!-- CV Download Button -->
+                <a href="AaronBlanco-CV.pdf" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-700 hover:text-amber-400 transition-all border border-neutral-700 shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    View CV
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden p-2 text-neutral-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-neutral-900 border-b border-neutral-800 p-6 space-y-4 shadow-xl">
+            <a href="#about" class="block text-lg font-medium text-neutral-300 hover:text-red-500" onclick="toggleMenu()">About Me</a>
+            <a href="#projects" class="block text-lg font-medium text-neutral-300 hover:text-red-500" onclick="toggleMenu()">Projects</a>
+            <a href="#skills" class="block text-lg font-medium text-neutral-300 hover:text-red-500" onclick="toggleMenu()">Skills</a>
+            <a href="#timeline" class="block text-lg font-medium text-neutral-300 hover:text-red-500" onclick="toggleMenu()">Experience</a>
+            <a href="#contact" class="block text-lg font-medium text-neutral-300 hover:text-red-500" onclick="toggleMenu()">Contact</a>
+            <a href="AaronBlanco-CV.pdf" target="_blank" class="block text-lg font-medium text-red-500" onclick="toggleMenu()">View CV/Resume</a>
+        </div>
+    </nav>
+
+    <!-- Hero / About Me Section -->
+    <section id="about" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
+            <!-- Text Content -->
+            <div class="flex-1 text-center lg:text-left relative z-10">
+                <span class="inline-block py-1 px-3 rounded-full bg-red-900/30 border border-red-800 text-red-400 text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">Aaron Blanco, MIET | Robotics & Mechanical Engineer</span>
+                <h1 class="text-4xl lg:text-6xl font-black leading-tight tracking-tight mb-6 text-white uppercase">
+                    Building intelligent <span class="gradient-text">robotic systems</span> & hardware.
+                </h1>
+                <p class="text-lg text-neutral-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                    MSc Robotics graduate, Mechanical Engineer, and MIET from King's College London. I specialise in bridging the gap between software and hardware, with expertise in ROS2, machine learning, and advanced mechanical design.
+                </p>
+                
+                <!-- Social/Contact Links -->
+                <div class="flex items-center justify-center lg:justify-start gap-6 mb-10 text-neutral-400">
+                    <a href="https://github.com/arnblnc" target="_blank" class="social-icon-btn flex items-center gap-2 font-bold">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                        <span class="hidden sm:inline">GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/arnblnc/" target="_blank" class="social-icon-btn flex items-center gap-2 font-bold">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
+                        <span class="hidden sm:inline">LinkedIn</span>
+                    </a>
+                    <a href="mailto:aaronnblanco@gmail.com" class="social-icon-btn flex items-center gap-2 font-bold">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <span class="hidden sm:inline">Email</span>
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#projects" class="px-8 py-4 bg-red-600 text-white rounded-full font-bold hover:bg-red-700 transition-all shadow-lg shadow-red-600/30">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-transparent border-2 border-neutral-100 text-neutral-100 rounded-full font-bold hover:bg-neutral-100 hover:text-neutral-900 transition-all">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Image -->
+            <div class="flex-1 relative w-full max-w-sm lg:max-w-md mx-auto z-10">
+                <!-- Heat Gradient Aura -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-red-600 via-red-500 to-amber-500 rounded-full blur-3xl opacity-30 transform translate-x-4 translate-y-4"></div>
+                <div class="relative aspect-square rounded-full border-8 border-neutral-900 shadow-2xl overflow-hidden bg-neutral-800 flex items-center justify-center">
+                    <img src="pfp-ab.jpeg" alt="Aaron Blanco" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Aaron+Blanco&background=171717&color=ef4444&size=512';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6 bg-neutral-950 border-t border-neutral-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-3xl font-black mb-4 uppercase tracking-tight text-white">Featured Projects</h2>
+                <div class="h-1.5 w-24 bg-gradient-to-r from-red-600 to-amber-500"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1: ROS2 -->
+                <a href="https://github.com/arnblnc/ros2-turtlesim-autonomous-target-tracking" target="_blank" class="block group bg-neutral-900 rounded-2xl p-8 border border-neutral-800 hover:border-red-500 hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-neutral-950 border border-neutral-700 text-neutral-100 rounded-xl flex items-center justify-center shadow-sm group-hover:text-red-500 group-hover:border-red-500/50 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                        </div>
+                        <span class="text-xs font-black text-neutral-500 uppercase tracking-widest group-hover:text-amber-500 transition-colors">May 2025</span>
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <h3 class="text-2xl font-bold text-white group-hover:text-red-500 transition-colors">ROS2 Target Tracking</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-600 group-hover:text-red-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </div>
+                    <p class="text-neutral-400 mb-6 text-sm leading-relaxed font-medium">
+                        Engineered a multi-node ROS2 architecture for autonomous target tracking using Turtlesim. Leveraged Python and OOP principles to build publishers, subscribers, and custom interfaces for simulated robot control.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">ROS2</span>
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">Python</span>
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">OOP</span>
+                    </div>
+                </a>
+
+                <!-- Project 2: EMG -->
+                <a href="https://github.com/arnblnc/Classifying-EMG-signals" target="_blank" class="block group bg-neutral-900 rounded-2xl p-8 border border-neutral-800 hover:border-red-500 hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-neutral-950 border border-neutral-700 text-neutral-100 rounded-xl flex items-center justify-center shadow-sm group-hover:text-red-500 group-hover:border-red-500/50 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                        </div>
+                        <span class="text-xs font-black text-neutral-500 uppercase tracking-widest group-hover:text-amber-500 transition-colors">Aug 2023</span>
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <h3 class="text-2xl font-bold text-white group-hover:text-red-500 transition-colors">EMG Signal Processing</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-600 group-hover:text-red-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </div>
+                    <p class="text-neutral-400 mb-6 text-sm leading-relaxed font-medium">
+                        Developed signal processing methods in MATLAB for online training in a robotic arm. Employed LDA and SVM classifiers, achieving 95.20% accuracy with SVM for gesture recognition.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">MATLAB</span>
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">Machine Learning</span>
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">SVM/LDA</span>
+                    </div>
+                </a>
+
+                <!-- Project 3: AI Fabric -->
+                <a href="https://github.com/arnblnc/Fabric-fault-detection-using-AI-and-Machine-Learning" target="_blank" class="block group bg-neutral-900 rounded-2xl p-8 border border-neutral-800 hover:border-red-500 hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-neutral-950 border border-neutral-700 text-neutral-100 rounded-xl flex items-center justify-center shadow-sm group-hover:text-red-500 group-hover:border-red-500/50 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                        </div>
+                        <span class="text-xs font-black text-neutral-500 uppercase tracking-widest group-hover:text-amber-500 transition-colors">Apr 2022</span>
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <h3 class="text-2xl font-bold text-white group-hover:text-red-500 transition-colors">AI Fabric Fault Detection</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-600 group-hover:text-red-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </div>
+                    <p class="text-neutral-400 mb-6 text-sm leading-relaxed font-medium">
+                        Partnered with SoundSorba to develop a prototype using Resnet50 and YOLOv4. Achieved 88.2% accuracy on a dataset of 900+ images, demonstrating deep learning efficacy in fault detection.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">Deep Learning</span>
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">Computer Vision</span>
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">YOLOv4</span>
+                    </div>
+                </a>
+
+                <!-- Project 4: Motion Planning -->
+                <a href="https://github.com/arnblnc/MSc-Projects/tree/main/Robotics%20Systems/Motion%20Planning" target="_blank" class="block group bg-neutral-900 rounded-2xl p-8 border border-neutral-800 hover:border-red-500 hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-neutral-950 border border-neutral-700 text-neutral-100 rounded-xl flex items-center justify-center shadow-sm group-hover:text-red-500 group-hover:border-red-500/50 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
+                        </div>
+                        <span class="text-xs font-black text-neutral-500 uppercase tracking-widest group-hover:text-amber-500 transition-colors">Mar 2023</span>
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <h3 class="text-2xl font-bold text-white group-hover:text-red-500 transition-colors">Robotics Motion Planning</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-600 group-hover:text-red-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </div>
+                    <p class="text-neutral-400 mb-6 text-sm leading-relaxed font-medium">
+                        Implemented RRT, PRM, and A* motion planning algorithms in Python. Spearheaded the development of RRT and A* algorithms, ensuring optimized performance and detailed algorithm efficiency comparisons.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">Python</span>
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">Algorithms</span>
+                        <span class="px-3 py-1 skill-tag rounded-full text-xs font-bold text-red-400">A* & RRT</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 bg-black text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-3xl font-black mb-4 uppercase tracking-tight">Technical Skills</h2>
+                <div class="h-1.5 w-24 bg-gradient-to-r from-red-600 to-amber-500"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold text-white border-b border-neutral-800 pb-2">Programming</h4>
+                    <ul class="space-y-3 text-neutral-400 font-medium">
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-red-600"></div> ROS2 (rclpy, rclcpp)</li>
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-red-600"></div> Python & C++</li>
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-red-600"></div> MATLAB</li>
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-red-600"></div> Arduino</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold text-white border-b border-neutral-800 pb-2">Design & Simulation</h4>
+                    <ul class="space-y-3 text-neutral-400 font-medium">
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-amber-500"></div> CAD (Fusion 360, Creo)</li>
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-amber-500"></div> ANSYS Workbench (CFD)</li>
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-amber-500"></div> Kinematics & Jacobians</li>
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-amber-500"></div> Motion Planning (RRT, A*)</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold text-white border-b border-neutral-800 pb-2">Tools & Environments</h4>
+                    <ul class="space-y-3 text-neutral-400 font-medium">
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-neutral-600"></div> Git & GitHub</li>
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-neutral-600"></div> Linux, Mac OS, Windows</li>
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-neutral-600"></div> POSIX Threads (pthreads)</li>
+                        <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-neutral-600"></div> Sensors & Actuators</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-24 px-6 bg-neutral-950 border-b border-neutral-800">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl font-black mb-4 uppercase tracking-tight text-white">Education & Experience</h2>
+                <p class="text-neutral-400 font-medium">A timeline of my academic background and professional roles.</p>
+            </div>
+
+            <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-neutral-800 before:to-transparent">
+                
+                <!-- Education 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-neutral-950 bg-black text-red-500 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-neutral-900 p-6 rounded-xl border border-neutral-800 group-hover:border-red-500/50 transition-colors">
+                        <div class="flex flex-col sm:flex-row justify-between items-start mb-2">
+                            <h3 class="font-black text-lg uppercase tracking-tight text-white">MSc Robotics</h3>
+                            <time class="text-sm text-amber-500 font-bold">Sep 2022 - Jul 2024</time>
+                        </div>
+                        <p class="text-red-400 font-bold text-sm mb-2">King's College London</p>
+                        <p class="text-neutral-400 text-sm font-medium">Key Modules: Robotics Systems, Machine Learning for Engineers, AI Reasoning, Computer Vision, Real-Time Systems and Control.</p>
+                    </div>
+                </div>
+
+                <!-- Education 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-neutral-950 bg-black text-red-500 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-neutral-900 p-6 rounded-xl border border-neutral-800 group-hover:border-red-500/50 transition-colors">
+                        <div class="flex flex-col sm:flex-row justify-between items-start mb-2">
+                            <h3 class="font-black text-lg uppercase tracking-tight text-white">BEng Mechanical Eng</h3>
+                            <time class="text-sm text-amber-500 font-bold">Sep 2019 - Jul 2022</time>
+                        </div>
+                        <p class="text-red-400 font-bold text-sm mb-2">Brunel University London</p>
+                        <p class="text-neutral-400 text-sm font-medium">Key Modules: Design of Engineering Systems, Applied Fluid Mechanics, Mechatronics, Sustainable Engineering.</p>
+                    </div>
+                </div>
+
+                <!-- Work Experience 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-neutral-950 bg-neutral-800 text-neutral-400 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-neutral-900 p-6 rounded-xl border border-neutral-800">
+                        <div class="flex flex-col sm:flex-row justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-white">Part-time Restaurant Server</h3>
+                            <time class="text-sm text-neutral-500 font-bold">Sep 2022 - Present</time>
+                        </div>
+                        <p class="text-neutral-300 font-medium text-sm mb-2">Bali Bali, London</p>
+                        <p class="text-neutral-400 text-sm font-medium">Provided exceptional customer service in a fast-paced environment while balancing rigorous MSc studies. Managed orders, inventory, and teamwork under pressure.</p>
+                    </div>
+                </div>
+
+                <!-- Work Experience 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-neutral-950 bg-neutral-800 text-neutral-400 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-neutral-900 p-6 rounded-xl border border-neutral-800">
+                        <div class="flex flex-col sm:flex-row justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-white">Secretary, ABACUS</h3>
+                            <time class="text-sm text-neutral-500 font-bold">2020 - 2022</time>
+                        </div>
+                        <p class="text-neutral-300 font-medium text-sm mb-2">Brunel University</p>
+                        <p class="text-neutral-400 text-sm font-medium">Managed society operations, budgeting, and organized social events, demonstrating strong administrative and collaborative skills.</p>
+                    </div>
+                </div>
+
+                <!-- Work Experience 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-neutral-200 text-neutral-600 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-800">
+                        <div class="flex flex-col sm:flex-row justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-white">Model & Actor</h3>
+                            <time class="text-sm text-neutral-500 font-bold">2013 - Present</time>
+                        </div>
+                        <p class="text-neutral-300 font-medium text-sm mb-2">Various Agencies, London</p>
+                        <p class="text-neutral-400 text-sm font-medium">Featured in commercial advertisements for global clients (Samsung, ASOS, Virgin Media). Developed strong communication and presentation skills in diverse settings.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Download CV Callout -->
+            <div class="mt-16 text-center">
+                <a href="AaronBlanco-CV.pdf" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-neutral-100 text-neutral-100 rounded-full font-black uppercase tracking-widest hover:bg-neutral-100 hover:text-neutral-900 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                    Download Full CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 bg-black text-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black mb-4 uppercase tracking-tight">Get in Touch</h2>
+                <div class="h-1.5 w-24 bg-gradient-to-r from-red-600 to-amber-500 mx-auto mb-6"></div>
+                <p class="text-neutral-400 font-medium">Have a project in mind or want to discuss opportunities? Send me a message below.</p>
+            </div>
+
+            <div class="bg-neutral-900 p-8 md:p-10 rounded-2xl border border-neutral-800 shadow-2xl">
+                <!-- Replace 'YOUR_FORMSPREE_ENDPOINT' with a real endpoint like 'https://formspree.io/f/your_id' -->
+                <form id="contact-form-ui" action="https://formspree.io/f/mnjlyjga" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-neutral-300 mb-2">Name</label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 bg-neutral-950 rounded-lg border border-neutral-800 text-white focus:ring-2 focus:ring-red-600 focus:border-transparent focus:outline-none transition-all placeholder-neutral-700" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-neutral-300 mb-2">Email</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 bg-neutral-950 rounded-lg border border-neutral-800 text-white focus:ring-2 focus:ring-red-600 focus:border-transparent focus:outline-none transition-all placeholder-neutral-700" placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-neutral-300 mb-2">Message</label>
+                        <textarea rows="4" name="message" required class="w-full px-4 py-3 bg-neutral-950 rounded-lg border border-neutral-800 text-white focus:ring-2 focus:ring-red-600 focus:border-transparent focus:outline-none transition-all placeholder-neutral-700" placeholder="How can I help you?"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-red-600 text-white rounded-lg font-black uppercase tracking-widest hover:bg-red-700 transition-all shadow-lg shadow-red-600/20">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-neutral-950 border-t border-neutral-800">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <p class="text-white font-black uppercase tracking-tight text-lg mb-1">Let's Connect</p>
+                <p class="text-neutral-500 text-sm mb-4 font-medium">Currently open to roles in Robotics and Mechatronics.</p>
+                <a href="mailto:aaronnblanco@gmail.com" class="text-red-500 font-bold hover:text-amber-500 transition-colors">aaronnblanco@gmail.com</a>
+            </div>
+            
+            <div class="flex space-x-6">
+                <a href="https://github.com/arnblnc" target="_blank" class="text-neutral-500 hover:text-red-500 transition-colors">
+                    <span class="sr-only">GitHub</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/arnblnc/" target="_blank" class="text-neutral-500 hover:text-red-500 transition-colors">
+                    <span class="sr-only">LinkedIn</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" /></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Assistant Chat Widget -->
+    <div id="ai-chat-panel" class="fixed bottom-24 right-6 w-80 sm:w-96 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden hidden transform transition-all duration-300 translate-y-4 opacity-0 h-[400px]">
+        <div class="bg-black p-4 text-white flex justify-between items-center border-b-2 border-red-600">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl text-amber-500">🔥</span>
+                <div>
+                    <h3 class="font-black text-sm uppercase tracking-tight">Aaron's AI Assistant</h3>
+                    <p class="text-xs text-neutral-400 font-medium">Ask about my experience</p>
+                </div>
+            </div>
+            <button id="close-chat" class="text-neutral-400 hover:text-red-500 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+            </button>
+        </div>
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-neutral-950 space-y-4 text-sm font-medium">
+            <div class="flex gap-2">
+                <div class="bg-neutral-800 border border-neutral-700 p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-neutral-200">
+                    Hi there! I'm an AI assistant trained on Aaron's portfolio. Want to know more about his ROS2 projects, mechanical engineering background, or specific skills?
+                </div>
+            </div>
+        </div>
+        <div class="p-3 border-t border-neutral-800 bg-neutral-900">
+            <form id="chat-form" class="flex gap-2">
+                <input type="text" id="chat-input" placeholder="Ask a question..." autocomplete="off" class="flex-1 px-3 py-2 bg-neutral-950 border border-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent text-sm font-medium text-white placeholder-neutral-500">
+                <button type="submit" class="bg-red-600 text-white p-2 rounded-lg hover:bg-red-700 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <button id="ai-chat-btn" class="fixed bottom-6 right-6 bg-black text-white border-2 border-red-600 p-4 rounded-full shadow-lg shadow-red-600/30 hover:bg-neutral-900 hover:scale-105 transition-all z-50 flex items-center justify-center group">
+        <span class="text-xl group-hover:hidden">🔥</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden group-hover:block text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+    </button>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const nav = document.querySelector('nav');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Navigation Active State and background shadow on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                // Ignore the View CV button for active state styling
+                if(link.getAttribute('target') === '_blank') return;
+                
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-red-500');
+                } else {
+                    link.classList.remove('text-red-500');
+                }
+            });
+        });
+
+        // --- Gemini AI Assistant Logic ---
+        const apiKey = ""; 
+        const chatBtn = document.getElementById('ai-chat-btn');
+        const chatPanel = document.getElementById('ai-chat-panel');
+        const closeChatBtn = document.getElementById('close-chat');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        const systemPrompt = `You are a polite, helpful AI assistant built directly into Aaron Blanco's portfolio website. You are speaking to recruiters, hiring managers, and visitors.
+        Aaron's Profile: Robotics & Mechanical Engineer, MIET.
+        Education: MSc in Robotics (King's College London), BEng in Mechanical Engineering (Brunel University).
+        Professional Memberships: MIET (Member of the Institution of Engineering and Technology).
+        Key Skills: ROS2 (rclpy/rclcpp), Python, C++, MATLAB, Fusion 360, Machine Learning, Computer Vision, Arduino, Git, Linux.
+        Interests & Continuous Learning: Currently learning Practical C++ via Udemy, participated in KCL Robotics Society workshops.
+        Projects: 
+        1. ROS2 Autonomous Target Tracking (Multi-node OOP Python architecture using Turtlesim).
+        2. EMG signal processing for online training (MATLAB, SVM/LDA classifiers).
+        3. AI fabric fault detection (YOLOv4, Resnet50, 88.2% accuracy).
+        4. Robotics motion planning (Implemented A*, RRT, PRM in Python).
+        Experience: 
+        1. Part-time Restaurant Server at Bali Bali (Sep 2022 - Present) - Managed this alongside MSc degree.
+        2. Secretary of the ABACUS society (2020-2022).
+        3. Model & Actor for major brands (2013-Present).
+        Instructions: Keep answers concise (1-3 short paragraphs max). Do not invent information. Answer as a third-party assistant (e.g., "Aaron has experience in..."). End relevant conversations by encouraging the visitor to email him directly at aaronnblanco@gmail.com for more details.`;
+
+        let isChatOpen = false;
+
+        chatBtn.addEventListener('click', () => {
+            isChatOpen = !isChatOpen;
+            if (isChatOpen) {
+                chatPanel.classList.remove('hidden');
+                setTimeout(() => {
+                    chatPanel.classList.remove('translate-y-4', 'opacity-0');
+                }, 10);
+                chatInput.focus();
+            } else {
+                closeChat();
+            }
+        });
+
+        closeChatBtn.addEventListener('click', closeChat);
+
+        function closeChat() {
+            isChatOpen = false;
+            chatPanel.classList.add('translate-y-4', 'opacity-0');
+            setTimeout(() => {
+                chatPanel.classList.add('hidden');
+            }, 300);
+        }
+
+        function addMessage(text, isUser = false) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `flex gap-2 ${isUser ? 'justify-end' : ''}`;
+            
+            const bubble = document.createElement('div');
+            bubble.className = `p-3 rounded-2xl shadow-sm max-w-[85%] text-sm font-medium ${
+                isUser 
+                ? 'bg-red-600 text-white rounded-tr-none' 
+                : 'bg-neutral-800 border border-neutral-700 text-neutral-200 rounded-tl-none'
+            }`;
+            
+            let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            formattedText = formattedText.replace(/\n/g, '<br>');
+            bubble.innerHTML = formattedText;
+            
+            msgDiv.appendChild(bubble);
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addTypingIndicator() {
+            const msgDiv = document.createElement('div');
+            msgDiv.id = 'typing-indicator';
+            msgDiv.className = 'flex gap-2';
+            msgDiv.innerHTML = `
+                <div class="bg-neutral-800 border border-neutral-700 p-3 rounded-2xl rounded-tl-none shadow-sm flex items-center typing-indicator">
+                    <span></span><span></span><span></span>
+                </div>
+            `;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
+        }
+
+        async function callGemini(prompt) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            const delays = [1000, 2000, 4000, 8000, 16000];
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!response.ok) throw new Error('API Error');
+                    const data = await response.json();
+                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't generate a response.";
+                } catch (err) {
+                    if (i === 4) return "Sorry, I'm having trouble connecting to the AI right now. Please reach out to Aaron directly via email at aaronnblanco@gmail.com!";
+                    await new Promise(r => setTimeout(r, delays[i]));
+                }
+            }
+        }
+
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            addMessage(text, true);
+            chatInput.value = '';
+            
+            addTypingIndicator();
+            const responseText = await callGemini(text);
+            removeTypingIndicator();
+            
+            addMessage(responseText);
+        });
+    </script>
+</body>
+</html>
